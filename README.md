@@ -2,15 +2,11 @@
 
 ## 使用技術
 
-<hr>
-
 1. Google Maps Javascript API
 2. Vue.js
 3. Bootstrap4
 
 ## 建立地圖 google.maps.Map 參數
-
-<hr>
 
 ### center
 
@@ -38,8 +34,6 @@ this.map = new google.maps.Map(document.getElementById("map"), {
 ```
 
 ## 設置多個標記 Marks
-
-<hr>
 
 ### map.geojson
 
