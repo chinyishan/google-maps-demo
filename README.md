@@ -42,5 +42,5 @@ this.map = new google.maps.Map(document.getElementById("map"), {
 ### Code
 
 ```
-new google.maps.marker.AdvancedMarkerElement({})
+new google.maps.marker.AdvancedMarkerElement()
 ```
