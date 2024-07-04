@@ -44,3 +44,7 @@ this.map = new google.maps.Map(document.getElementById("map"), {
 ```
 new google.maps.marker.AdvancedMarkerElement()
 ```
+
+### 改地圖樣式
+
+https://mapstyle.withgoogle.com/
