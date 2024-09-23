@@ -48,3 +48,20 @@ new google.maps.marker.AdvancedMarkerElement()
 ### 改地圖樣式
 
 https://mapstyle.withgoogle.com/
+
+# D3.js SVG 台灣
+
+## 繪製 SVG 圖形
+
+```jsx
+// 將圖形儲存以利後續使用
+const svg = d3
+  // 選擇一個畫面上元素作為容器
+  .select('#chart')
+  // 設定要新增的標籤名稱
+  .append('svg')
+  // 設定svg的width屬性
+  .attr('width', 600)
+  // 設定svg的height屬性
+  .attr('height', 400);
+```

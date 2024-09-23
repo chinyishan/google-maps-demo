@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Maps + JavaScript</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/googleMap.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <header class="header">
+        <div class="header__wrap">
+          <h1 class="header__title">搜尋中心</h1>
+          <input
+            class="header__input"
+            type="text"
+            id="params"
+            name="params"
+            value=""
+          />
+          <button class="header__btn" id="search">查詢</button>
+        </div>
+      </header>
+      <div></div>
+      <div class="map__section">
+        <div id="map"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // const { AdvancedMarkerElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+
+    let map;
+    const params = document.querySelector('#params');
+    const search = document.querySelector('#search');
+
+    async function initMap() {
+      const { Map, InfoWindow } = await google.maps.importLibrary('maps');
+      const { AdvancedMarkerElement, PinElement } =
+        await google.maps.importLibrary('marker');
+      const infoWindow = new InfoWindow();
+
+      map = new Map(document.getElementById('map'), {
+        center: {
+          lat: 25.07704,
+          lng: 121.232,
+        },
+        zoom: 14,
+        mapId: '483dd5ac6d221d16',
+        mapTypeId: 'terrain',
+      });
+
+      // 放置多個marker
+      fetch('./json/TourismServiceSiteList.json')
+        .then((results) => results.json())
+        .then((result) => {
+          console.log(result.TourismServiceSites);
+          let res = result.TourismServiceSites;
+          Array.prototype.forEach.call(res, (r) => {
+            let pin = new PinElement({
+              background: '#b21d1d',
+              borderColor: '#6a1515',
+              glyphColor: '#ffff',
+              scale: 1,
+            });
+
+            let latLng = new google.maps.LatLng(r.PositionLat, r.PositionLon);
+
+            let marker = new AdvancedMarkerElement({
+              map,
+              position: latLng,
+              gmpClickable: true,
+              content: pin.element,
+              title: `${r.TourismServiceSiteName}`,
+            });
+
+            marker.addListener('click', ({ domEvent, latLng }) => {
+              const { target } = domEvent;
+              console.log(domEvent, latLng);
+
+              infoWindow.close();
+              infoWindow.setContent(`<h3>${marker.title}</h3>`);
+              infoWindow.open(marker.map, marker);
+            });
+          });
+        });
+    }
+
+    initMap();
+
+    search.addEventListener('click', function () {
+      console.log(params);
+    });
+  </script>
+</html>
