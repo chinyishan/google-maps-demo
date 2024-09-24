@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>echarts 繪製圖表</title>
+    <script src="./dist/echarts.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #chart-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <ul>
+          <li><a href="./googleMapJs.html">GoogleMapsJs</a></li>
+          <li><a href="./googleMapVue.html">GoogleMapsVue</a></li>
+          <li><a href="./d3TaiwainVue.html">D3TaiwainVue</a></li>
+          <li><a href="./echartsMap.html">echartsMap</a></li>
+          <li><a href="./echartsColumn.html">echartsColumn</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="app">
+      <div id="chart-container"></div>
+    </div>
+
+    <script type="text/javascript">
+      var dom = document.getElementById('chart-container');
+      var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false,
+      });
+      var app = {};
+      var option;
+
+      // 為圖表設定特定的大小
+      myChart.resize({
+        width: 800,
+        height: 400,
+      });
+
+      option = {
+        // 全局调色盘。
+        // color: [
+        //   '#c23531',
+        //   '#2f4554',
+        // ],
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow',
+          },
+        },
+        // dataset: {
+        //   // 提供一份数据。
+        //   source: [
+        //     ['product', '2015', '2016', '2017'],
+        //     ['Matcha Latte', 43.3, 85.8, 93.7],
+        //     ['Milk Tea', 83.1, 73.4, 55.1],
+        //     ['Cheese Cocoa', 86.4, 65.2, 82.5],
+        //     ['Walnut Brownie', 72.4, 53.9, 39.1],
+        //   ],
+        // },
+        legend: {},
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true,
+        },
+        // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+        xAxis: [
+          {
+            type: 'category',
+            // 標籤資料
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            // 刻度标签
+            axisLabel: {
+              formatter: '星期 {value}',
+              align: 'center',
+              width: 5,
+            },
+          },
+        ],
+        // 声明一个 Y 轴，数值轴。
+        yAxis: [
+          {
+            type: 'value',
+            name: '單位',
+            min: 0,
+            max: 600,
+            position: 'left',
+            axisLabel: {
+              formatter: '{value} 店',
+              width: 5,
+            },
+          },
+        ],
+        // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+        // series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }],
+
+        // 原始數據設置
+        series: [
+          {
+            name: 'Email', // 名稱
+            type: 'bar', // 類型
+            stack: 'Ad', // 堆疊
+            // 此系列自己的调色盘。
+            color: ['#BADC9F'],
+            emphasis: {
+              focus: 'series',
+            },
+            data: [302, 132, 101, 134, 90, 230, 210],
+          },
+          {
+            name: 'Union Ads',
+            type: 'bar',
+            stack: 'Ad',
+            color: ['#FED364'],
+            emphasis: {
+              focus: 'series',
+            },
+            data: [5, 182, 191, 234, 290, 330, 310],
+          },
+        ],
+      };
+
+      if (option && typeof option === 'object') {
+        myChart.setOption(option);
+      }
+
+      window.addEventListener('resize', myChart.resize);
+    </script>
+  </body>
+</html>

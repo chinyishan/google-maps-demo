@@ -74,6 +74,17 @@
     }
   </style>
   <body>
+    <header class="header">
+      <nav>
+        <ul>
+          <li><a href="./googleMapJs.html">GoogleMapsJs</a></li>
+          <li><a href="./googleMapVue.html">GoogleMapsVue</a></li>
+          <li><a href="./d3TaiwainVue.html">D3TaiwainVue</a></li>
+          <li><a href="./echartsMap.html">echartsMap</a></li>
+          <li><a href="./echartsColumn.html">echartsColumn</a></li>
+        </ul>
+      </nav>
+    </header>
     <div id="app" class="container">
       <div class="row">
         <div class="col">
@@ -90,7 +101,7 @@
     createApp({
       data() {
         return {
-          message: "Hello Vue!",
+          message: 'Hello Vue!',
           map: null,
           markers: [], // 保存标记的数组
         };
@@ -106,14 +117,14 @@
           };
 
           // 建立地圖
-          this.map = new google.maps.Map(document.getElementById("map"), {
+          this.map = new google.maps.Map(document.getElementById('map'), {
             center: location,
             zoom: 16,
-            mapTypeId: "terrain",
+            mapTypeId: 'terrain',
           });
 
           // 放置多個marker
-          fetch("./map.geojson")
+          fetch('./map.geojson')
             .then((results) => results.json())
             .then((result) => {
               let res = result.features;
@@ -133,10 +144,10 @@
 
       created() {
         // 不需要 window.load 事件，因为 Google 地图 API 已经加载完毕
-        window.addEventListener("load", () => {
+        window.addEventListener('load', () => {
           this.initMap();
         });
       },
-    }).mount("#app");
+    }).mount('#app');
   </script>
 </html>
