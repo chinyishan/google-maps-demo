@@ -67,16 +67,18 @@
             type: 'shadow',
           },
         },
-        // dataset: {
-        //   // 提供一份数据。
-        //   source: [
-        //     ['product', '2015', '2016', '2017'],
-        //     ['Matcha Latte', 43.3, 85.8, 93.7],
-        //     ['Milk Tea', 83.1, 73.4, 55.1],
-        //     ['Cheese Cocoa', 86.4, 65.2, 82.5],
-        //     ['Walnut Brownie', 72.4, 53.9, 39.1],
-        //   ],
-        // },
+        dataset: {
+          // 提供一份数据。
+          source: [
+            ['year', 'all', 'new'],
+            ['2015', 302, 10],
+            ['2016', 200, 73],
+            ['2017', 122, 95],
+            ['2018', 380, 23],
+            ['2019', 122, 95],
+            ['2020', 400, 83],
+          ],
+        },
         legend: {},
         grid: {
           left: '3%',
@@ -89,7 +91,7 @@
           {
             type: 'category',
             // 標籤資料
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             // 刻度标签
             axisLabel: {
               formatter: '星期 {value}',
@@ -126,7 +128,7 @@
             emphasis: {
               focus: 'series',
             },
-            data: [302, 132, 101, 134, 90, 230, 210],
+            // data: [302, 132, 101, 134, 90, 230, 210],
           },
           {
             name: 'Union Ads',
@@ -136,7 +138,7 @@
             emphasis: {
               focus: 'series',
             },
-            data: [5, 182, 191, 234, 290, 330, 310],
+            // data: [5, 182, 191, 234, 290, 330, 310],
           },
         ],
       };
