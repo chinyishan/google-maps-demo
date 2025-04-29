@@ -8,7 +8,8 @@
 
 1. Google Maps Javascript API
 2. Vue.js
-3. Bootstrap4
+3. D3.js
+4. Echart
 
 ## 建立地圖 google.maps.Map 參數
 
