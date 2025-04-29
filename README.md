@@ -1,5 +1,9 @@
 # Google Map Demo
 
+## 專案簡介
+本專案主要練習如何在前端專案中整合 Google Maps JavaScript API，實作地圖渲染、標記 (Marker) 放置、資訊視窗 (InfoWindow) 展示，以及基本的地圖互動控制。
+同時測試不同參數設定，了解地圖自訂化與最佳化技巧，作為後續地圖應用開發的基礎練習。
+
 ## 使用技術
 
 1. Google Maps Javascript API
