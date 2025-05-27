@@ -1,8 +1,13 @@
 # Google Map Demo
 
 ## 專案簡介
+
 本專案主要練習如何在前端專案中整合 Google Maps JavaScript API，實作地圖渲染、標記 (Marker) 放置、資訊視窗 (InfoWindow) 展示，以及基本的地圖互動控制。
 同時測試不同參數設定，了解地圖自訂化與最佳化技巧，作為後續地圖應用開發的基礎練習。
+
+## Demo 連結
+
+<a href="https://chinyishan.github.io/google-maps-demo/" target="_blank">網站連結</a>
 
 ## 使用技術
 
@@ -62,11 +67,11 @@ https://mapstyle.withgoogle.com/
 // 將圖形儲存以利後續使用
 const svg = d3
   // 選擇一個畫面上元素作為容器
-  .select('#chart')
+  .select("#chart")
   // 設定要新增的標籤名稱
-  .append('svg')
+  .append("svg")
   // 設定svg的width屬性
-  .attr('width', 600)
+  .attr("width", 600)
   // 設定svg的height屬性
-  .attr('height', 400);
+  .attr("height", 400);
 ```
